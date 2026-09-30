@@ -57,7 +57,7 @@ public class App extends Application {
         
         final double DOOR_WIDTH = 70, DOOR_HEIGHT = 130;
         
-        Rectangle door = new Rectangle(HOUSE_CENTER_X - HOUSE_WIDTH / 2, HOUSE_BOTTOM - DOOR_HEIGHT, DOOR_WIDTH, DOOR_HEIGHT);
+        Rectangle door = new Rectangle(HOUSE_CENTER_X - DOOR_WIDTH / 2, HOUSE_BOTTOM - DOOR_HEIGHT, DOOR_WIDTH, DOOR_HEIGHT);
         door.setFill(Color.DARKRED);
         
         final double WINDOW_SIZE = 70;
@@ -93,7 +93,7 @@ public class App extends Application {
         ray2.setStroke(Color.GOLD);
         ray3.setStroke(Color.GOLD);
         
-        Pane root = new Pane();
+        Pane root = new Pane(grass, houseWalls, basePlate, door, window1, window2, hPane1, hPane2, vPane1, vPane2, roof, ray1, ray2, ray3, sun, chimney);
         root.getChildren().addAll();
         
         var scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT);
