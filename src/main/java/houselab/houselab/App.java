@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
@@ -70,16 +71,32 @@ public class App extends Application {
         
         Line hPane1 = new Line(WINDOW1_X, WINDOW_Y + WINDOW_SIZE / 2, WINDOW1_X + WINDOW_SIZE, WINDOW_Y + WINDOW_SIZE / 2);
         Line vPane1 = new Line(WINDOW1_X + WINDOW_SIZE / 2, WINDOW_Y, WINDOW1_X + WINDOW_SIZE / 2, WINDOW_Y + WINDOW_SIZE);
-        
         Line hPane2 = new Line(WINDOW2_X, WINDOW_Y + WINDOW_SIZE / 2, WINDOW2_X + WINDOW_SIZE, WINDOW_Y + WINDOW_SIZE / 2);
         Line vPane2 = new Line(WINDOW2_X + WINDOW_SIZE / 2, WINDOW_Y, WINDOW2_X + WINDOW_SIZE / 2, WINDOW_Y + WINDOW_SIZE);
         
+        hPane1.setStroke(Color.BLACK);
+        hPane2.setStroke(Color.BLACK);
+        vPane1.setStroke(Color.BLACK);
+        vPane2.setStroke(Color.BLACK);
         
+        final double SUN_X = 670, SUN_Y = 80;
+        final double SUN_RADIUS = 45;
         
-        Pane pane = new Pane();
-        pane.getChildren().addAll();
+        Circle sun = new Circle(SUN_X, SUN_Y, SUN_RADIUS);
+        sun.setFill(Color.YELLOW);
         
-        var scene = new Scene(pane, SCENE_WIDTH, SCENE_HEIGHT);
+        Line ray1 = new Line(SUN_X - SUN_RADIUS - 10, SUN_Y, SUN_X - SUN_RADIUS - 40, SUN_Y);
+        Line ray2 = new Line(SUN_X, SUN_Y + SUN_RADIUS + 10, SUN_X, SUN_Y  + SUN_RADIUS + 40);
+        Line ray3 = new Line(SUN_X - 35, SUN_Y + 35, SUN_X - SUN_RADIUS - 60, SUN_Y + 60);
+        
+        ray1.setStroke(Color.GOLD);
+        ray2.setStroke(Color.GOLD);
+        ray3.setStroke(Color.GOLD);
+        
+        Pane root = new Pane();
+        root.getChildren().addAll();
+        
+        var scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT);
         stage.setScene(scene);
         stage.show();
     }
