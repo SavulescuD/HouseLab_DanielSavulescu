@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -58,8 +59,25 @@ public class App extends Application {
         Rectangle door = new Rectangle(HOUSE_CENTER_X - HOUSE_WIDTH / 2, HOUSE_BOTTOM - DOOR_HEIGHT, DOOR_WIDTH, DOOR_HEIGHT);
         door.setFill(Color.DARKRED);
         
+        final double WINDOW_SIZE = 70;
+        final double WINDOW_Y = HOUSE_Y + 50;
+        final double WINDOW1_X = HOUSE_X + 35, WINDOW2_X = HOUSE_X + HOUSE_WIDTH - 35 - WINDOW_SIZE;
+        
+        Rectangle window1 = new Rectangle(WINDOW1_X, WINDOW_Y, WINDOW_SIZE, WINDOW_SIZE);
+        Rectangle window2 = new Rectangle(WINDOW2_X, WINDOW_Y, WINDOW_SIZE, WINDOW_SIZE);
+        window1.setFill(Color.LIGHTBLUE);
+        window2.setFill(Color.LIGHTBLUE);
+        
+        Line hPane1 = new Line(WINDOW1_X, WINDOW_Y + WINDOW_SIZE / 2, WINDOW1_X + WINDOW_SIZE, WINDOW_Y + WINDOW_SIZE / 2);
+        Line vPane1 = new Line(WINDOW1_X + WINDOW_SIZE / 2, WINDOW_Y, WINDOW1_X + WINDOW_SIZE / 2, WINDOW_Y + WINDOW_SIZE);
+        
+        Line hPane2 = new Line(WINDOW2_X, WINDOW_Y + WINDOW_SIZE / 2, WINDOW2_X + WINDOW_SIZE, WINDOW_Y + WINDOW_SIZE / 2);
+        Line vPane2 = new Line(WINDOW2_X + WINDOW_SIZE / 2, WINDOW_Y, WINDOW2_X + WINDOW_SIZE / 2, WINDOW_Y + WINDOW_SIZE);
+        
+        
+        
         Pane pane = new Pane();
-        pane.getChildren().addAll(houseWalls, roof, chimney);
+        pane.getChildren().addAll();
         
         var scene = new Scene(pane, SCENE_WIDTH, SCENE_HEIGHT);
         stage.setScene(scene);
