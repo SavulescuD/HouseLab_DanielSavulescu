@@ -23,11 +23,18 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        final double HOUSE_WIDTH = 600;
+        final double HOUSE_WIDTH = 500;
+        final double HOUSE_HEIGHT = 450;
+        final double HOUSE_X = HOUSE_WIDTH /4;
+        final double HOUSE_Y = HOUSE_HEIGHT /4;
         
-        Rectangle houseWalls = new Rectangle(HOUSE_WIDTH, 450);
-        houseWalls.setX(100);
-        houseWalls.setY(30);
+        final double SCENE_WIDTH = 750;
+        final double SCENE_HEIGHT = 750;
+        
+        Rectangle houseWalls = new Rectangle(HOUSE_WIDTH, HOUSE_HEIGHT);
+        
+        houseWalls.setX(SCENE_WIDTH / 4);
+        houseWalls.setY(SCENE_HEIGHT / 3);
         houseWalls.setFill(Color.GREY);
         houseWalls.setStroke(Color.BLACK);
         
@@ -47,7 +54,7 @@ public class App extends Application {
         Pane pane = new Pane();
         pane.getChildren().addAll(houseWalls, roof, chimney);
         
-        var scene = new Scene(pane, 640, 480);
+        var scene = new Scene(pane, SCENE_WIDTH, SCENE_HEIGHT);
         stage.setScene(scene);
         stage.show();
     }
