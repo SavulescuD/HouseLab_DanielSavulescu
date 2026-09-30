@@ -23,14 +23,12 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        final double SCENE_WIDTH = 750;
-        final double SCENE_HEIGHT = 750;
+        final double SCENE_WIDTH = 750, SCENE_HEIGHT = 750;
         
         final double GRASS_HEIGHT = 150;
         final double GRASS_Y = SCENE_HEIGHT - GRASS_HEIGHT;
         
-        final double HOUSE_WIDTH = 350;
-        final double HOUSE_HEIGHT = 260;
+        final double HOUSE_WIDTH = 350, HOUSE_HEIGHT = 260;
         final double HOUSE_X = (SCENE_WIDTH - HOUSE_WIDTH) / 2;
         final double HOUSE_Y = 350;
         final double HOUSE_BOTTOM = HOUSE_Y + HOUSE_HEIGHT;
@@ -47,18 +45,18 @@ public class App extends Application {
         Rectangle basePlate = new Rectangle(HOUSE_X, HOUSE_BOTTOM, HOUSE_WIDTH, 10);
         basePlate.setFill(Color.BEIGE);
         
-        Polygon roof = new Polygon(SCENE_WIDTH / 4, SCENE_HEIGHT / 3 + HOUSE_Y, HOUSE_WIDTH / 2, 150, HOUSE_WIDTH, 300);
+        Polygon roof = new Polygon(HOUSE_X, HOUSE_Y, HOUSE_CENTER_X, HOUSE_Y - 175, HOUSE_X + HOUSE_WIDTH, HOUSE_Y);
         roof.setFill(Color.RED);
         roof.setStroke(Color.BLACK);
         
-        Rectangle chimney = new Rectangle(50, 150);
-        chimney.setX(120);
-        chimney.setY(houseWalls.getY() + 275);
+        Rectangle chimney = new Rectangle(HOUSE_CENTER_X - 40, HOUSE_Y - 150, 35, 100);
         chimney.setFill(Color.DARKGREY);
         chimney.setStroke(Color.BLACK);
         
-        Rectangle window1 = new Rectangle(45, 45);
+        final double DOOR_WIDTH = 70, DOOR_HEIGHT = 130;
         
+        Rectangle door = new Rectangle(HOUSE_CENTER_X - HOUSE_WIDTH / 2, HOUSE_BOTTOM - DOOR_HEIGHT, DOOR_WIDTH, DOOR_HEIGHT);
+        door.setFill(Color.DARKRED);
         
         Pane pane = new Pane();
         pane.getChildren().addAll(houseWalls, roof, chimney);
