@@ -23,22 +23,31 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        final double HOUSE_WIDTH = 500;
-        final double HOUSE_HEIGHT = 450;
-        final double HOUSE_X = HOUSE_WIDTH /4;
-        final double HOUSE_Y = HOUSE_HEIGHT /4;
-        
         final double SCENE_WIDTH = 750;
         final double SCENE_HEIGHT = 750;
         
-        Rectangle houseWalls = new Rectangle(HOUSE_WIDTH, HOUSE_HEIGHT);
+        final double GRASS_HEIGHT = 150;
+        final double GRASS_Y = SCENE_HEIGHT - GRASS_HEIGHT;
         
-        houseWalls.setX(SCENE_WIDTH / 4);
-        houseWalls.setY(SCENE_HEIGHT / 3);
-        houseWalls.setFill(Color.GREY);
+        final double HOUSE_WIDTH = 350;
+        final double HOUSE_HEIGHT = 260;
+        final double HOUSE_X = (SCENE_WIDTH - HOUSE_WIDTH) / 2;
+        final double HOUSE_Y = 350;
+        final double HOUSE_BOTTOM = HOUSE_Y + HOUSE_HEIGHT;
+        final double HOUSE_CENTER_X = HOUSE_X + HOUSE_WIDTH / 2;
+        
+        
+        Rectangle grass = new Rectangle(0, GRASS_Y, SCENE_WIDTH, GRASS_HEIGHT);
+        grass.setFill(Color.GREEN);
+        
+        Rectangle houseWalls = new Rectangle(HOUSE_X, HOUSE_Y, HOUSE_WIDTH, HOUSE_HEIGHT);
+        houseWalls.setFill(Color.LIGHTGREY);
         houseWalls.setStroke(Color.BLACK);
         
-        Polygon roof = new Polygon(100, 300, HOUSE_WIDTH / 2, 150, HOUSE_WIDTH, 300);
+        Rectangle basePlate = new Rectangle(HOUSE_X, HOUSE_BOTTOM, HOUSE_WIDTH, 10);
+        basePlate.setFill(Color.BEIGE);
+        
+        Polygon roof = new Polygon(SCENE_WIDTH / 4, SCENE_HEIGHT / 3 + HOUSE_Y, HOUSE_WIDTH / 2, 150, HOUSE_WIDTH, 300);
         roof.setFill(Color.RED);
         roof.setStroke(Color.BLACK);
         
