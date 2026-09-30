@@ -3,6 +3,7 @@ package houselab.houselab;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
@@ -11,6 +12,8 @@ import javafx.stage.Stage;
 
 
 /**
+ * 
+ * GitHub repository link: https://github.com/SavulescuD/HouseLab_DanielSavulescu.git
  * 
  * @author - Daniel Savulescu 2540408
  * 
@@ -30,11 +33,21 @@ public class App extends Application {
         
         Polygon roof = new Polygon(100, 300, HOUSE_WIDTH / 2, 150, HOUSE_WIDTH, 300);
         roof.setFill(Color.RED);
+        roof.setStroke(Color.BLACK);
         
         Rectangle chimney = new Rectangle(50, 150);
-        chimney.setX(HOUSE_WIDTH);
+        chimney.setX(120);
+        chimney.setY(houseWalls.getY() + 275);
+        chimney.setFill(Color.DARKGREY);
+        chimney.setStroke(Color.BLACK);
         
-        var scene = new Scene(new StackPane(label), 640, 480);
+        Rectangle window1 = new Rectangle(45, 45);
+        
+        
+        Pane pane = new Pane();
+        pane.getChildren().addAll(houseWalls, roof, chimney);
+        
+        var scene = new Scene(pane, 640, 480);
         stage.setScene(scene);
         stage.show();
     }
